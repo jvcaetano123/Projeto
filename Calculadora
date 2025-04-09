@@ -1,0 +1,83 @@
+import flet as ft
+
+def main(page:ft.page):
+        page.title='Calculadora'
+        page.window_center()
+        page.bgcolor ='#FFFFFF'
+        page.window_resizable = False
+        page.window_width ='515'
+        page.window_height ='400'
+        page.window_center()
+
+        a1 = ft.Text('Padão',size = 30,)
+
+        a2 = ft.Container(
+                bgcolor = '#D7D7D9',
+                border_radius = 10,
+                height = 80,
+                padding = 10,
+        )
+
+        a3 = ft.Row([
+
+        ft.ElevatedButton(text=('%'),width = 90,on_click = Pressionar_botão),
+
+        ft.ElevatedButton(text=('CE'),width = 90,on_click = Pressionar_botão),
+
+        ft.ElevatedButton(text=('C'),width = 90,on_click = Pressionar_botão),
+
+        ft.ElevatedButton(content = ft.Icon(ft.icons.BACKSPACE),width = 90,on_click = Pressionar_botão),
+
+        ft.ElevatedButton(text=(':'),width = 90,on_click = Pressionar_botão),
+ 
+
+
+
+        ])
+
+        a4 = ft.Row([
+                ft.ElevatedButton(text=('7'), width = 90, on_click =Pressionar_botão),
+
+                ft.ElevatedButton(text=('8'),width = 90,on_click = Pressionar_botão),
+
+                ft.ElevatedButton(text=('9'),width = 90,on_click = Pressionar_botão),
+
+                ft.ElevatedButton(text=('C'),width = 90,on_click = Pressionar_botão),
+
+                ft.ElevatedButton(text=('X'),width = 90,on_click = Pressionar_botão),
+        
+        ])
+
+        a5 = ft.Row([
+                ft.ElevatedButton(text=('4'), width = 90, on_click = Pressionar_botão),
+
+                ft.ElevatedButton(text=('5'),width = 90,on_click = Pressionar_botão),
+
+                ft.ElevatedButton(text=('6'),width = 90,on_click = Pressionar_botão),
+
+                ft.ElevatedButton(text=('-'),width = 90,on_click = Pressionar_botão),
+
+                
+        ])
+
+        a6 = ft.Row([
+                 ft.ElevatedButton(text=('1'), width = 90, on_click = Pressionar_botão),
+
+                ft.ElevatedButton(text=('2'),width = 90,on_click = Pressionar_botão),
+
+                ft.ElevatedButton(text=('3'),width = 90,on_click = Pressionar_botão),
+
+                ft.ElevatedButton(text=('+'),width = 90,on_click = Pressionar_botão),     
+        ])
+
+        a7 = ft.ElevatedButton(text = ('='), width = 90, on_click = Pressionar_botão),
+
+
+        def Pressionar_botão(e):
+
+
+
+
+
+                page.add(a1,a2,a3,a4,a5,a6,a7)
+ft.app(main)
