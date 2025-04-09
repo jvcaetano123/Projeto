@@ -1,0 +1,47 @@
+import flet as ft
+#Página em Branco
+
+
+
+def main(page:ft.Page):
+    page.bgcolor ='#FFFFFF'
+    page.window_width ='400'
+    page.window_height ='520'
+    page.window_resizable = False
+    page.padding = 10
+    page.window_center()
+    page.window_maximizable = False
+   
+     #Container
+    c1= ft.Container(padding=30 ,bgcolor="#A9A9A9",border_radius=5)
+    c2= ft.Container(padding=70 ,bgcolor="#A9A9A9",border_radius=5)
+
+    #Enntrada de dados
+    text_altura=ft.TextField(label="Altura",autofocus=True,content_padding=20)
+    text_peso=ft.TextField(label="Peso",content_padding=20)
+
+
+
+    listabox=ft.Dropdown(
+        label="Gênero",
+        options=[
+            ft.dropdown.Option("Masculino"),
+            ft.dropdown.Option("Feminino"),
+            ft.dropdown.Option('Outros'),
+        ],
+        
+    )
+    #Comando para Criação de botão
+
+    btn=ft.CupertinoFilledButton(content=ft.Text("CALCULAR IMC"),opacity_on_click=0.3,width=500,on_click=lambda e:print("CupertinofilledButton clicked!"))
+
+    img=ft.Image(
+        src= f"ProjetoBase/pp.png",
+        width=50,height=50,
+        fit=ft.ImageFit.CONTAIN
+    )
+
+
+    page.add(c1, img, c2,text_altura,text_peso,listabox,btn)
+    
+ft.app(main)
