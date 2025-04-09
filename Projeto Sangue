@@ -1,0 +1,53 @@
+import flet as ft
+#Página em Branco
+
+
+def main(page:ft.Page):
+    page.add(ft.SafeArea(ft.Text("Cadastro")))
+    page.bgcolor ='#FFFFFF'
+    page.window_width ='400'
+    page.window_height ='720'
+    page.window_resizable = False
+    page.padding = 10
+    page.window_center()
+    page.window_maximizable = False
+
+    #Container
+    c1= ft.Container(padding=30 ,bgcolor="#A9A9A9",border_radius=5)
+    c2= ft.Container(padding=70 ,bgcolor="#A9A9A9",border_radius=5)
+
+    #Entrada de Dados
+    input_a1=ft.TextField(label="Nome",autofocus=True,content_padding=20)
+    listabox=ft.Dropdown(
+        label="Gênero",
+        options=[
+          ft.dropdown.Option("Masculino"),
+          ft.dropdown.Option("Feminino"),
+          ft.dropdown.Option("outros"),
+        ],
+    )
+    input_a2=ft.TextField(label="Idade",content_padding=20)
+    input_a3=ft.TextField(label="Número de Telefone",content_padding=20)
+    input_a4=ft.TextField(label="E-mail",content_padding=20)
+    
+    #Botão
+    btn=ft.FilledButton(text="Cadastar",on_click=True)
+    btn.width='500'
+    #Imagen
+    img=ft.Image(
+        src= f"ProjetoBase/ss.png",
+        width=50,height=50,
+        fit=ft.ImageFit.CONTAIN
+    )
+
+import flet as ft
+#Comando para Criação de Página em branco
+def main(page:ft.Page):
+ page.bgcolor ='#FFFFFF'
+ page.window_width ='900'
+ page.window_height ='600'
+ page.window_resizable = False
+ page.window_center
+ page.window_maximizable = False
+
+   
