@@ -1,0 +1,50 @@
+import flet as ft
+#Página em Branco
+
+lista = []
+
+def main(page:ft.Page):
+    page.bgcolor ='#FFFFFF'
+    page.title = 'CALCULADORA DE IDADE'
+    page.window_width ='350'
+    page.window_height ='500'
+    page.window_resizable = False
+    page.padding = 75
+    page.window_center()
+    page.window_maximizable = False
+   
+   
+    #Comando para criar Entrada de Dados
+    input_nome=ft.TextField(label="Qual seu Nome",autofocus=True)
+    input_ano=ft.TextField(label="Ano de Nascimento")
+    input_atual=ft.TextField(label="Ano atual")
+    
+
+    def calcidade(e):
+        aa = int(input_atual.value)
+        an = int(input_ano.value)
+        nm = str(input_nome.value)
+        
+        if aa and an:
+
+            #Adicionar a frase com resultado na tela
+            lista.append(f'Olá {nm} você tem {aa-an} anos')
+
+            input_atual.value = ""
+            input_ano.value = ""
+            input_nome.value= ""
+
+            listar.controls.append(ft.Text(f'Olá {nm} você tem {aa-an} anos'))
+
+            page.update()
+
+    #Comando para criar Botões
+    btn=ft.FilledButton(text="Calcular",on_click=calcidade)
+    btn.bgcolor='#2E75CD'
+    btn.width="500"    
+    
+    listar = ft.Column()
+
+    page.add(input_nome,input_ano,input_atual,btn,listar)
+    
+ft.app(main)
