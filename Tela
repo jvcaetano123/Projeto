@@ -1,0 +1,90 @@
+import flet as ft
+import mysql.connector
+# Conexão com o banco de dados
+def conectar_banco():
+    return mysql.connector.connect(
+        host = "loacalhost", # ou endereço do seu banco de dados
+        user = "root", #seu usuário
+        password = "123", # sua senha
+        database = "tercafeira" # o nome  do banco de dados
+    )
+# registrar algo no banco
+def update(nome):
+    try:
+        conexao = conectar_banco()
+        cursor = conexao.cursor()
+        sql = "INSERT INTO QUINTAFEIRA(NOME)VALUES(%s)"
+        valores = (nome,)
+
+        cursor.execute(sql,valores)
+        conexao.commit()
+
+        cursor.close()
+        conexao.close()
+
+        return "Registro Realizado com Sucesso"
+    except mysql.connector.Error as err:
+        return f"Erro: {err}"
+    
+    
+def mostrar():
+    try:
+        conexao = conectar_banco()
+        cursor = conexao.cursor()
+        sql = "SELECT* FROM QINTAFEIRA"
+        valores = ()
+
+        cursor.execute(sql,valores)
+        conexao.commit()
+
+        cursor.close()
+        conexao.close()
+        return "Salvar com sucesso"
+    except mysql.connector.Error as err:
+        return f'Erro:{err}'
+    
+    
+
+
+def main(page:ft.Page):
+    page.bgcolor ='#FFFFFF'
+    page.window_width ='400'
+    page.window_height ='550'
+    page.window_resizable = False
+    page.window_center
+    page.window_maximizable = False
+
+    a1 = ft.TextField(label = "Nome:")
+
+    btn = ft.CupertinoButton(content=ft.text('Guardar'),width=500,on_click= lambda e: salvar(e))
+
+    btn2 = ft.CupertinoButton(content=ft.text('Pesquisar'),width=500,on_click=True)
+
+    btn3 = ft.CupertinoButton(content=ft.text('Alterar'),width=500,on_click=True)
+
+    btn4 = ft.CupertinoButton(content=ft.text('Deletar'),width=500,on_click=True)
+    
+    def salvar(e):
+        a1 = a1.value
+        a1.value = ""
+
+    page.update()
+
+
+    table = ft.DataTable(
+        columns = [
+            ft.DataColumn(ft.Text('ID')),
+            ft.DataColumn(ft.Text('Nome'))
+        ]
+    )
+
+    c = ft.Row([btn2,btn3,btn4])
+
+    cont = ft.Container(bgcolor = '#000000',width = 500,height = 300,border_radius = 5,content=table)
+
+    
+
+   
+    
+    page.add(a1,btn,c,cont)
+ft.app(main)
