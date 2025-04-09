@@ -1,0 +1,11 @@
+
+nome = []
+cpf = []
+
+lista = [nome]
+
+pessoa1 = ['Dante','12345678912']
+pessoa2 = ['Vergil','166.446.709-32']
+pessoa3 = ['Hellena','323.406.909-13']
+pessoa4 = ['Sparda','737.434.209-20']
+
