@@ -1,0 +1,37 @@
+import flet as ft
+
+def main(page: ft.Page):
+    page.add(
+      dt = ft.DataTable(
+            columns=[
+              ft.DataColumn(ft.Text("Primeiro Nome")),
+                ft.DataColumn(ft.Text("Segundo Nome")),
+                ft.DataColumn(ft.Text("Idade"), numeric=True),
+            ],
+            rows=[
+                ft.DataRow(
+                    cells=[
+                        ft.DataCell(ft.Text("Kaio")),
+                        ft.DataCell(ft.Text("Santos")),
+                        ft.DataCell(ft.Text("12")),
+                    ],
+                ),
+                ft.DataRow(
+                    cells=[
+                        ft.DataCell(ft.Text("Dante")),
+                        ft.DataCell(ft.Text("Alighieri")),
+                        ft.DataCell(ft.Text("20")),
+                    ],
+                ),
+                ft.DataRow(
+                    cells=[
+                        ft.DataCell(ft.Text("Bayonetta")),
+                        ft.DataCell(ft.Text("Wong")),
+                        ft.DataCell(ft.Text("26")),
+                    ],
+                ),
+            ],
+        ),
+    )
+    page.add()
+ft.app(main)
