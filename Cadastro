@@ -1,0 +1,22 @@
+import flet as ft
+#Comando para Criação de Página em branco
+def main(page:ft.Page):
+ page.bgcolor ='#FFFFFF'
+ page.window_width ='900'
+ page.window_height ='600'
+ page.window_resizable = False
+ page.window_center
+ page.window_maximizable = False
+
+ page.title = "Início"
+ page.navigation_bar = ft.NavigationBar(
+        destinations=[
+            ft.NavigationBarDestination(icon=ft.icons.ACCOUNT_BOX, label="Cadastro"),
+            ft.NavigationBarDestination(icon=ft.icons.EXIT_TO_APP, label="sair"),
+        ]
+    )
+
+
+
+ page.add()
+ft.app(target=main)
