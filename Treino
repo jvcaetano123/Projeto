@@ -1,0 +1,144 @@
+import flet as ft 
+#Configurações da página
+def main(page: ft.Page):
+    page.bgcolor = '#162D59'
+    page.window_center()
+    page.window_width = '1000'
+    page.window_height = '600'
+    page.window_resizable = False
+    page.window_maximizable = False
+    page.horizontal_alignment = 'start'
+  
+
+
+    r1 = ft.Row([
+                 #Configurações do Conteiner de Cadastro
+                ft.Container(
+                        bgcolor= '#F2F2F2',
+                        width= 450,
+                        height= 540,
+                        border_radius= 10,
+                        content= ft.Column([ 
+                                   
+                                    ft.Text("Faça Seu Login",size= 30,color='#162D59', font_family='robotoslad',weight=ft.FontWeight.W_700),
+
+                                        ft.Container( content=ft.Column([
+
+                                            ft.TextField(label= 'Email', width= 360, prefix_icon=ft.icons.EMAIL ),
+                                            ft.TextField(label= 'Senha', width= 360, prefix_icon=ft.icons.PASSWORD, can_reveal_password=True, password=True),
+
+                                                    ])),
+                                      #Entada de Dados
+                                    ft.FilledButton(content = ft.Text('Entrar'),  width= 250, height= 50, style=ft.ButtonStyle(bgcolor='#162D59', color='#F2F2F2'),on_click = lambda e: entrar (e)),
+                                    ft.TextButton(text="Esqueceu sua senha")
+
+                                            ],spacing= 40, alignment= ft.MainAxisAlignment.CENTER, horizontal_alignment= ft.CrossAxisAlignment.CENTER)
+                                    ),
+                  #conteiner das Imagem
+                 ft.Container(
+                        
+                        width= 510,
+                        height= 540,
+                        content = ft.Column([
+
+                                    ft.Image( src='ProjetoBase\Sistema de Cadastro\Telas\movel.png', width= 350, height= 350 ),
+                                    ft.Text('A melhor experiência de login\n que você já teve na sua vida.', size= 20,color='#FFFFFF')
+                                    
+                                    
+                                    ], spacing=30, horizontal_alignment=ft.CrossAxisAlignment.CENTER, alignment=ft.MainAxisAlignment.CENTER)
+                 )
+
+ ])
+
+    cadastro = ft.Column([
+    
+    ft.Container(
+        
+                        bgcolor= '#F2F2F2',
+                        width= 1000,
+                        height= 250,
+                        border_radius= 10,
+                        padding=20,
+                        
+                        content=ft.Column([
+
+                                            ft.Text('Coloque seus Dados:',size=30,color='#000000',font_family='robotoslad',weight=ft.FontWeight.W_200,),
+                                   ft.Row([
+                                             ft.TextField(label='CPF:',border_color='#0D0D0D',border_radius=20,width=150,color='#000000'),
+                                             ft.TextField(label='Nome Completo:',border_radius=20,border_color='#0D0D0D',width=350),
+                                             ft.TextField(label= 'Nome da Mãe:', border_color= '#0D0D0D',border_radius= 20, width= 150),
+                                             
+                                    
+                                           
+                                             
+
+
+                                   ]),
+                                  
+                                   ft.Row([
+                                             ft.TextField(
+                                                 label='Endereço',border_radius=20,border_color='#0D0D0D',width=350
+                                                 ),
+                                             ft.TextField(
+                                                 label='Nome da Mãe',border_radius=20,border_color='#0D0D0D',width=350
+                                                 ),    
+                                   ]),
+
+                                   ft.Row([
+                                             ft.FilledButton(content=ft.Text('Voltar'),width=250,height=50,style=ft.ButtonStyle(bgcolor='#162D59',color='#F2F2F2'),on_click= lambda e: voltar (e)),
+                                             ft.FilledButton(content=ft.Text('Salvar'),width=250,height=50,style=ft.ButtonStyle(bgcolor='#162D59',color='#F2F2F2'))
+                                             
+                                             ]),
+
+                                    
+
+
+                                   
+                                          
+                                   
+
+                        ])
+
+                        ),
+    
+    ft.Container(
+
+                    bgcolor= '#F2F2F2',
+                    width= 1000,
+                    height= 250,
+                    border_radius= 10,
+                    
+
+                    
+                    
+                    
+
+
+    )
+
+])
+    
+
+#controle da página
+
+    def entrar(e: ft.ControlEvent):
+
+        page.remove(r1)
+        page.add(cadastro)
+
+    def voltar(e: ft.ControlEvent):
+
+        page.remove(cadastro)
+        page.add(r1)
+
+    #def ValidarAcesso(e: ft.ControlEvent):
+    
+
+        
+ 
+    
+    page.add(r1)
+ft.app(target= main)
+
+ 
+ 
