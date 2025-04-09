@@ -1,0 +1,41 @@
+import flet as ft
+#Página em Branco
+
+
+def main(page:ft.Page):
+    page.title='Site'
+    page.add(ft.SafeArea(ft.Text("Site")))
+    page.bgcolor ='#FFFFFF'
+    page.window_width ='400'
+    page.window_height ='520'
+    page.window_resizable = False
+    page.padding = 10
+    page.window_center()
+    page.window_maximizable = False
+
+    #Entrada de Dados
+    input_nome = ft.TextField(label="Nome",autofocus=True)
+    imprimir = ft.Text()
+    
+
+    def mostrar(e):
+        imprimir.value= f'Olá {input_nome.value}'  
+
+        input_nome.value = ""
+
+        dlg=ft.AlertDialog(
+            title=ft.text("Olá voê está testando a função modal"),
+            on_dismiss=lambda e:page.add(ft.text("Non-modal dialog dismissed")),
+        )
+
+        page.update()
+            
+    
+    btn=ft.CupertinoFilledButton(content=ft.Text("Imprimir"),width=500,on_click=mostrar)
+
+
+    page.add(input_nome,btn,imprimir)
+ft.app(main)
+
+
+    
