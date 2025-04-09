@@ -1,0 +1,34 @@
+import flet as ft
+#Página em Branco
+
+def main(page:ft.Page):
+    page.title='Contrato'
+    page.add(ft.SafeArea(ft.Text("DIGITE SEUS DADOS")))
+    page.bgcolor ='#FFFFFF'
+    page.window_width ='350'
+    page.window_height ='500'
+    page.window_resizable = False
+    page.padding = 10
+    page.window_center()
+    page.window_maximizable = False
+
+    #Entrada de Dados
+
+    input_nome=ft.TextField(label="Nome",autofocus=True)
+    input_cpf=ft.TextField(label="CPF",keyboard_type=ft.KeyboardType.NUMBER)
+    input_email=ft.TextField(label="E-mail",keyboard_type=ft.KeyboardType.EMAIL)
+    input_numero=ft.TextField(label="Número de Telefone",keyboard_type=ft.KeyboardType.PHONE)
+
+    #Botão
+    btn=ft.FilledButton(text="Imprimir Contrato",on_click=True)
+    btn.width='500'
+
+    dlg=ft.AlertDialog(
+        title=ft.Text("Imprimindo")
+    )
+
+    btn=ft.CupertinoFilledButton(content=ft.Text("Imprimir Contrato"),width=500,on_click=lambda e:page.open(dlg))
+    
+
+    page.add(input_nome,input_cpf,input_email,input_numero,btn,dlg)
+ft.app(main)
