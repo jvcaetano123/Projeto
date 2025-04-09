@@ -1,0 +1,44 @@
+import flet as ft
+#Página em Branco
+
+def main(page:ft.Page):
+    page.bgcolor ='#facb45'
+    page.window_width ='400'
+    page.window_height ='500'
+    page.window_resizable = False
+    page.padding = 40
+    page.window_center()
+    page.window_maximizable = False
+    page.window_minimizable= False
+    page.horizontal_alignment='Center'
+    
+
+   
+    img =  ft.Image(
+            src=f"ProjetoBase/control.png",
+            width=80,height=80,
+            fit=ft.ImageFit.CONTAIN)
+                
+
+    a1=ft.Row([
+        ft.Container(content=ft.TextField("Typer Email ID",autofocus=True),bgcolor='#FFFFFF',width=300
+                     )
+    ])
+    a2=ft.Row([
+        ft.Container(content=ft.TextField("Type Passcode"),bgcolor='#FFFFFF'
+                     )
+    ])
+    b1=ft.Row([
+        ft.ElevatedButton(text="Login",bgcolor='#FF0000',on_click=True,width=300)
+    ])
+    
+
+    b2=ft.Row([
+        ft.ElevatedButton(text="Facebook",bgcolor='#1E90FF',on_click=True),
+        ft.ElevatedButton(text="Twitter",bgcolor='#00BFFF',on_click=True),
+
+    ])
+
+
+    page.add(img,a1,a2,b1,b2)
+ft.app(main)
