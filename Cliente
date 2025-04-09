@@ -1,0 +1,54 @@
+import flet as ft
+
+nome = ''
+cpf = ''
+
+
+def main(page:ft.Page):
+    page.bgcolor ='#FFFFFF'
+    page.window_width ='800'
+    page.window_height ='400'
+    page.window_resizable = False
+    page.padding = 10
+    page.window_center()
+    page.window_maximizable = False
+
+
+    t = ft.TextField(label='Digite:')
+    i = ft.TextField(label='CPF:')
+    btn = ft.ElevatedButton(text='Salvar', on_click=lambda e: Salvar(e))
+
+    text = ft.DataTable(
+                columns=[
+                    ft.DataColumn(ft.Text("Nome")),
+                    ft.DataColumn(ft.Text("CPF"))
+
+                ]
+
+
+        )
+    
+
+    a = ft.Row([ t, i, btn])
+
+    def Salvar(e):
+        nome = t.value
+        cpf = i.value
+
+        t.value = ""
+        i.value = ""
+     
+        atualizar()
+        page.update()
+
+    def atualizar():
+        
+        text
+       
+        page.add(text)
+
+
+
+
+    page.add(a, text)
+ft.app(main)    
