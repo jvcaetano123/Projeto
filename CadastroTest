@@ -1,0 +1,37 @@
+import flet as ft 
+#Configurações da página
+def main(page: ft.Page):
+    page.bgcolor = '#162D59'
+    page.window_center()
+    page.window_width = '1000'
+    page.window_height = '600'
+    page.window_resizable = False
+    page.window_maximizable = False
+    page.horizontal_alignment = 'start'
+
+
+
+    page.navigation_bar = ft.NavigationBar(
+        destinations=[
+            ft.NavigationBarDestination(icon=ft.icons.ACCOUNT_BOX, label="Cadastro"),
+            #ft.NavigationBarDestination(icon=ft.icons.COMMUTE, label="Commute"),
+            ft.NavigationBarDestination(
+                icon=ft.icons.EXIT_TO_APP,
+                selected_icon=ft.icons.BOOKMARK,
+                label="Sair",
+            ),
+        ]
+    )
+
+
+    
+
+    
+
+
+
+    page.add(ft.Text("Body!"))
+ft.app(main)
+
+
+  
