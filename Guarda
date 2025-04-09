@@ -1,0 +1,6 @@
+a = ft.Text(pessoas.pessoa1)
+b = ft.Text(pessoas.pessoa2)
+c = ft.Text(pessoas.pessoa3)
+d = ft.Text(pessoas.pessoa4)
+
+ 
