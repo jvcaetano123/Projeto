@@ -58,16 +58,11 @@ def main(page: ft.Page):
     )
 
 
-    inicio = ft.Container(width = 965, height = 620, padding = 20, 
-                      content = ft.Text("Tela de Início", color = "#000000", size = 30))
+    inicio = ft.Row([ft.Container(width = 200, height = 200, padding = 30,bgcolor='#000000')])
+
     
     alunos = ft.Container(width = 965, height = 620, padding = 20, 
-                      content = ft.DataTable(
-                                columns = [
-                                        ft.DataColumn(ft.Text("Nome")),
-                                        ft.DataColumn(ft.Text("Matricula ")),
-                                        ft.DataColumn(ft.Text("Age"), numeric=True),
-                                    ],)
+                      content = ft. Container(height=500, width=500,bgcolor='#000000'),
                         )
     
     responsaveis = ft.Container(width = 965, height = 620, padding = 20, 
