@@ -1,0 +1,83 @@
+from flet import *
+
+def main(page: Page):
+    page.window.center()
+    page.window.width = 768
+    page.window.height = 500
+    page.bgcolor = "#ffffff"
+    page.padding = 0
+
+    title = Text("Sing int",size = 40,color ='#000000')
+    email = TextField(label = "Email", prefix_icon = icons.EMAIL,width = 310,border = 10)
+    senha = TextField(label = "Senha", prefix_icon = icons.PASSWORD,width = 310,border = 10, can_reveal_password = True, password = True)
+    btn2 = FilledButton(text = "Entrar", on_click = lambda e: entrar(e))
+    btn1 = FilledButton(text = "Voltar", on_click = lambda e: voltar(e))
+
+    login = Row([
+
+                    Container(  
+                        height = 490, width = 385,
+                        bgcolor = "#000000",
+                        border_radius = border_radius.only(top_right = 150, bottom_right = 150),
+                        padding = 30,
+                            
+                            content = Column([btn1],horizontal_alignment = CrossAxisAlignment.CENTER, alignment = MainAxisAlignment.CENTER)
+                            ), 
+                            
+
+                    Container(
+                        height = 490,
+                        width = 385, 
+                        bgcolor = "#ffffff",
+                        padding = 30,
+                        content = Column([title,email,senha],horizontal_alignment = CrossAxisAlignment.CENTER, alignment = MainAxisAlignment.CENTER)
+                            
+                            )
+                            
+                ])
+#----------------------------------------------------------------------------------------------------------------------------------------------------------
+    title2 = Text("Cadastre-se",size = 40,color ='#000000')
+    email2 = TextField(label = "NOME", prefix_icon = icons.EMAIL,width = 310,border = 10)
+    senha2 = TextField(label = "SENHA", prefix_icon = icons.PASSWORD,width = 310,border = 10, can_reveal_password = True, password = True)
+    cpf = TextField(label= "CPF",prefix_icon = icons.AC_UNIT_SHARP,width = 310, border = 10)
+    btn4 = FilledButton(text = "Entrar", on_click = lambda e: entrar(e))
+    btn5 = FilledButton(text = "Voltar", on_click = lambda e: voltar(e))
+
+
+    cadastro = Row([
+
+                    Container(
+                        height = 490,
+                        width = 385,
+                        bgcolor = "#ffffff",
+                            
+                            content = Column([title2,email2,senha2,cpf,btn4,btn5],horizontal_alignment = CrossAxisAlignment.CENTER, alignment = MainAxisAlignment.CENTER)
+                            ), 
+                            
+
+                    Container(
+                        height = 490,
+                        width = 385,
+                        bgcolor = "#000000",
+                        border_radius = border_radius.only(top_left = 150, bottom_left= 150),
+                        padding = 30,
+                        content = Column([btn2],horizontal_alignment = CrossAxisAlignment.CENTER, alignment = MainAxisAlignment.CENTER)
+
+                            
+                            )
+
+                ],vertical_alignment = CrossAxisAlignment.CENTER, alignment = MainAxisAlignment.CENTER)
+
+    def entrar(e):
+        login.visible = True
+        cadastro.visible = False
+        page.update()
+
+    def voltar(e):
+
+        cadastro.visible = True
+        login.visible = False
+        page.update()
+    
+    page.add(cadastro,login)
+app(target = main)
