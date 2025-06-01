@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    background: url(paisagem.jpg) no-repeat;
+    margin: 100px;
+
+}
+
+h1{
+    color: rgb(1, 1, 17);
+}
+
+
+
+.container{
+    background-color: aliceblue;
+    align-items: center;
+    text-align: center;
+    padding: auto;
+    width: 500px;
+    height: 300px;
+    border-radius: 5%;
+
+
+
+
+}
+
+.NAME input{
+    margin: 10px;
+    width: 200px;
+    height: 30px;
+    border-radius: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(37, 22, 22, 0.2);
+    
+
+}
+
+.PASSWORD input{
+    margin: 10px;
+    width: 200px;
+    height: 30px;
+    border-radius: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(37, 22, 22, 0.2);
+    
+}
+
+.EMAIL input{
+    margin: 10px;
+    width: 200px;
+    height: 30px;
+    border-radius: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(37, 22, 22, 0.2);
+    
+}
+
+.BTN button{
+    color: rgb(18, 18, 19);
+    background-color: rgb(240, 148, 11);
+    margin: 10px;
+    height: 30px;
+    width: 150px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(37, 22, 22, 0.2);
+    border-radius: 40px;
+}
+
+
+
