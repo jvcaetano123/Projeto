@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    margin: 60px;
+    display: flex;
+    justify-content: center;
+    background: url(paisagem.jpg) no-repeat;   
+}
+
+.container{
+    background-color: aliceblue;
+    align-items: center;
+    text-align: center;
+    padding: auto;
+    width: 500px;
+    height: 300px;
+    border-radius: 5%;
+
+}
+
+.usuario input{
+    margin: 10px;
+    width: 200px;
+    height: 30px;
+    border-radius: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(37, 22, 22, 0.2);
+    
+}
+
+.senha input{
+    margin: 10px;
+    width: 200px;
+    height: 30px;
+    border-radius: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(37, 22, 22, 0.2);
+}
+
+.botao button{
+    color: rgb(18, 18, 19);
+    background-color: rgb(240, 148, 11);
+    margin: 10px;
+    height: 30px;
+    width: 150px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(37, 22, 22, 0.2);
+    border-radius: 40px;
+}
+
+
