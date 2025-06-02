@@ -1,5 +1,5 @@
 <?php
-$host = '127.0.0.';
+$host = '127.0.0.1';
 $user = 'jv';
 $pass = '';
 $db = 'meu_banco';
