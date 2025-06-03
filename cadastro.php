@@ -9,10 +9,10 @@ if($conn->connect_error){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $nome = $_POST["nome"];
-    $usuario = $_POST["email"];
+    $email = $_POST["email"];
     $senha = $_POST["senha"];
     $conn->query("INSERT INTO cadastros(nome, usuario, senha)
-    VALUES ('$nome','$usuario','$senha')");
+    VALUES ('$nome','$email','$senha')");
 }
       
 
@@ -29,39 +29,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body>
     <div class="container">
-        <form action="Cadastro.php" method="POST"></form>
-        
+
         <div class="h1">
             <h1>Cadastre-se</h1>
         </div>
-        <div class="NAME">
-            <form action="">
+
+        <form action="Cadastro.php" method="POST">
+
+            <div class="NAME">
                 <input type="text" name="nome" placeholder=  "NOME:">
-            <i class='bx  bx-community'  ></i> 
-        </form>
-        </div>
+                <i class='bx  bx-community'  ></i> 
+            </div>
 
-        <div class="EMAIL">
-        <form action="">
-            <input type="text" name="usuario" placeholder=  "E-MAIL:">
-            <i class='bx  bx-mail-open'  ></i> 
-        </form>
-        </div>
+            <div class="EMAIL">
+                <input type="text" name="email" placeholder=  "E-MAIL:">
+                <i class='bx  bx-mail-open'  ></i> 
+            </div>
 
-        <div class="PASSWORD">
-        <form action="">
-            <input type="password" name="senha" placeholder=  "SENHA:">
-            <i class='bx  bx-lock'  ></i>  
-        </form>
-        </div>
+            <div class="PASSWORD">
+                <input type="password" name="senha" placeholder=  "SENHA:">
+                <i class='bx  bx-lock'  ></i>  
+            </div>
 
-        <div class="BTN">
-        <form action="">
-            <button type="submit">CADASTRAR</button>
+            <div class="BTN">
+                <button type="submit">CADASTRAR</button>
+            </div>
+
         </form>
-        </div>
         
-        <a href="">Já possuio cadastro</a>
+        <a href="login.html">Já possuio cadastro</a>
 
         
 
