@@ -1,20 +1,9 @@
 <?php
-$host = '127.0.0.1';
-$user = 'jv';
-$pass = '';
-$db = 'meu_banco';
+$host = 'Localhost';
+$username = 'root';
+$pass = "";
+$db = 'bancodedados';
 
-$conn = new mysqli($host,$user,$pass,$db);
+$conn = new mysqli($host,$username,$pass, $db);
 
-if($conn->connect_errno)
-
-
-{
-    echo "Error";
-}
-
-else{
-    echo "Conexão efetuada com sucesso!";
-}
-
-  ?>
+?>
