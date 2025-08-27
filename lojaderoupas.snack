@@ -1,0 +1,242 @@
+import React, { useState } from 'react';
+import AntDesign from '@expo/vector-icons/AntDesign';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import Entypo from '@expo/vector-icons/Entypo';
+import {SafeAreaView,View,Text,FlatList,Image,TouchableOpacity,StyleSheet,ScrollView,} from 'react-native';
+
+const PRODUCTS = [
+  { id: '1', type: 'Casaco', name: 'Casaco de Inverno', price: 'R$ 299,90', image: 'https://londonfog.com/cdn/shop/products/T791896-406_c.jpg?v=1712929807&width=1445' },
+
+  { id: '2', type: 'Tênis', name: 'Tênis Esportivo', price: 'R$ 199,90', image: 'https://static.vecteezy.com/system/resources/thumbnails/055/609/569/small_2x/stylish-blue-sport-sneakers-isolated-gym-shoes-isolated-on-transparent-background-png.png' },
+
+  { id: '3', type: 'Casaco', name: 'Jaqueta Jeans', price: 'R$ 249,90', image: 'https://images.tcdn.com.br/img/img_prod/1078823/jaqueta_jeans_feminina_leve_e_moderna_133_7_bf0323357e2a4413cd8025a8881189ea.jpg' },
+
+  { id: '4', type: 'Tênis', name: 'Tênis Casual', price: 'R$ 149,90', image: 'https://cdn.awsli.com.br/600x1000/1043/1043157/produto/217215303/sapatenis-masculino-de-couro-legitimo-comfort-shoes---4050-preto---dc2_1652-tswzst2ce7.jpg' },
+
+  { id: '5', type: 'Casaco', name: 'Casaco de Couro', price: 'R$ 310,40', image: 'https://http2.mlstatic.com/D_NQ_NP_845697-MLB50268556831_062022-O.webp' },
+
+  { id: '6', type: 'Tênis', name: 'Jordan', price: 'R$ 200,60', image: 'https://sneakersul.com.br/cdn/shop/files/air-jordan-1-high-bubble-gum-2.webp?v=1711910162' },
+  { id: '7', type: 'Casaco', name: 'Casaco militar', price: 'R$ 200,60', image: 'https://cdn.sistemawbuy.com.br/arquivos/8396f6cdc4ecfdde50f447ad12127860/produtos/63ffa1d298365/1-64f735bf0eb68.jpg' },
+];
+
+export default function App() {
+  const [filter, setFilter] = useState('Todos');
+
+  const filteredProducts = filter === 'Todos' ? PRODUCTS : PRODUCTS.filter(p => p.type === filter);
+
+  return (
+    <SafeAreaView style={styles.container}>
+     {/* Título da loja */}
+      <Text style={styles.title}>Loja de Casacos e Tênis</Text>
+      {/* Header com informações do usuário */}
+      <ScrollView
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        style={styles.container2}
+      >
+        <View style={styles.container1}>
+          <View style={styles.perfil}>
+            <AntDesign name="user" size={35} color="black" />
+          </View>
+          <Text style={styles.subtexto}>João Vitor</Text>
+
+          <View style={styles.is}>
+            <View style={styles.cont}>
+              <View style={styles.bola}>
+                <AntDesign name="shoppingcart" size={30} color="black" />
+              </View>
+              <Text style={styles.textConfigs}>Carrinho</Text>
+            </View>
+
+            <View style={styles.cont}>
+              <View style={styles.bola}>
+                <FontAwesome6 name="car" size={24} color="black" />
+              </View>
+              <Text style={styles.textConfigs}>Entrega</Text>
+            </View>
+
+             <View style={styles.cont}>
+              <View style={styles.bola}>
+                <AntDesign name="customerservice" size={24} color="black"/>
+              </View>
+              <Text style={styles.textConfigs}>Suporte</Text>
+            </View>
+
+             <View style={styles.cont}>
+              <View style={styles.bola}>
+                <Entypo name="megaphone" size={24} color="black"/>
+              </View>
+              <Text style={styles.textConfigs}>Novidades</Text>
+            </View>
+
+            <View style={styles.cont}>
+              <View style={styles.bola}>
+                <AntDesign name="heart" size={24} color="black" />
+              </View>
+              <Text style={styles.textConfigs}>Favoritos</Text>
+            </View>
+          </View>
+        </View>
+      </ScrollView>
+
+     
+
+      {/* Filtros */}
+      <View style={styles.filterContainer}>
+        {['Todos', 'Casaco', 'Tênis'].map(f => (
+          <TouchableOpacity
+            key={f}
+            onPress={() => setFilter(f)}
+            style={[styles.filterButton, filter === f && styles.filterButtonActive]}
+          >
+            <Text style={[styles.filterText, filter === f && styles.filterTextActive]}>
+              {f}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+
+      {/* Lista de produtos */}
+      <FlatList
+        data={filteredProducts} showsHorizontalScrollIndicator={false}
+        keyExtractor={item => item.id}
+        numColumns={2}
+        contentContainerStyle={styles.list}
+        renderItem={({ item }) => (
+          <View style={styles.card}>
+            <Image source={{ uri: item.image }} style={styles.image} />
+            <Text style={styles.name}>{item.name}</Text>
+            <Text style={styles.price}>{item.price}</Text>
+            <TouchableOpacity style={styles.buyButton}>
+              <Text style={styles.buyButtonText}>Comprar</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+      />
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 6,
+    padding: 16,
+    backgroundColor: '#2D7AE0',
+  },
+  container2: {
+    flexDirection: 'row',
+    
+    
+  },
+  container1: {
+    paddingLeft: 20,
+    gap: 20,
+  },
+  perfil: {
+    marginTop: 10,
+    backgroundColor: "rgba(255,255,255,0.5)",
+    height: 50,
+    width: 50,
+    borderRadius: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    cursor:'pointer'
+  },
+  subtexto: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    marginBottom: 8,
+    color: '#fff',
+  },
+  is: {
+    flexDirection: 'row',
+    gap: 20,
+  },
+  cont: {
+    alignItems: 'center',
+  },
+  bola: {
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+    backgroundColor: "#fff",
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 5,
+    cursor:'pointer',
+    
+  },
+  textConfigs: {
+    color: '#fff',
+    fontSize: 12,
+    backgroundColor:'',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 16,
+    textAlign: 'center',
+    color: '#fff',
+  },
+  filterContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 8,
+    
+    
+  },
+  filterButton: {
+    padding: 8,
+    marginHorizontal: 4,
+    borderWidth: 1,
+    borderColor: '#fff',
+    borderRadius: 4,
+  },
+  filterButtonActive: {
+    backgroundColor: '#fff',
+  },
+  filterText: {
+    color: '#fff',
+  },
+  filterTextActive: {
+    color: '#000',
+  },
+  list: {
+    paddingBottom: 16,
+    justifyContent: 'center',
+  },
+  card: {
+    width: '45%',
+    backgroundColor: '#f8f8f8',
+    margin: 8,
+    padding: 10,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  image: {
+    width: 100,
+    height: 100,
+    marginBottom: 10,
+  },
+  name: {
+    fontSize: 16,
+    marginBottom: 4,
+    textAlign: 'center',
+  },
+  price: {
+    fontSize: 14,
+    color: '#333',
+    marginBottom: 8,
+  },
+  buyButton: {
+    backgroundColor: '#007bff',
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 4,
+    display:'flex'
+  },
+  buyButtonText: {
+    color: '#fff',
+    fontSize: 14,
+  },
+});
