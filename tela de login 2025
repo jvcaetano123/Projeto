@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesd.css">
+    
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <form class="c1" methoid="post">
+            <h1>TESTE</h1>
+            <input type="text" placeholder="NOME:">
+            <input type="decimal" placeholder="TELEFONE:">
+            <input type="decimal" placeholder="IDADE:">
+            <button type="">CADASTRAR</button>
+        </form>
+    </div>
+
+    <div class="table">
+        <table>
+        <tr>
+            <th>ID:</th>
+            <th>NOME:</th>
+            <th>TELEFONE:</th>
+            <th>IDADE:</th>
+        </tr>
+    </table>
+    </div>
+    
+  
+
+ 
+</body>
+</html>
