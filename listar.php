@@ -1,7 +1,7 @@
 ?php
 include 'conexao.php';
 
-$sql = "SELECT * FROM usuarios";
+$sql = "SELECT * FROM contatos";
 $result = $conn->query($sql);
 
     while($row = $result->fetch_assoc()){
@@ -11,8 +11,8 @@ $result = $conn->query($sql);
         <td>{$row['TELEFONE']}</td>
         <td>{$row['IDADE']}</td>
         <td>
-        <a href='editar.php?id=".$row['ID']."'>Editar</a>
-        <a href='deletar.php?id=".$row['ID']."'>Deletar</a>
+        <a href='editar.php?id={$row['ID']}>Editar</a> |
+        <a href='deletar.php?id={$row['ID']}>Deletar</a>
         </td>
         </tr>";
          
